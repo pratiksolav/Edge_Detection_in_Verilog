@@ -295,6 +295,7 @@ bus_2<=8'b0;
 end
 end
 endmodule
+
 module sobel_edge(pix0,pix1,pix2,pix3,pix5,pix6,pix7,pix8,edges);
 input  [7:0]pix0,pix1,pix2,pix3,pix5,pix6,pix7,pix8;	
 output [7:0]edges;				
