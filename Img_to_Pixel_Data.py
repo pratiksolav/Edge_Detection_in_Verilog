@@ -1,0 +1,19 @@
+from PIL import Image
+
+img = Image.open('image.png').convert('L')
+WIDTH, HEIGHT = img.size
+
+data = list(img.getdata())
+data = [data[offset:offset+WIDTH] for offset in range(0, WIDTH*HEIGHT, WIDTH)]
+
+
+for row in data:
+    print("BUS_CON=0;OUT_VALID=1;STROBE_DATA=0;STROBE_MODE=1; OUT_VAL=")
+    print(';#10 OUT_VAL='.join('{:3}'.format(value) for value in row))
+    print('; #10 STROBE_DATA=0;STROBE_MODE=1;BUS_CON=1;OUT_VALID=0;')
+    print(' $display("],[");')
+    print('$write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 ')
+    print('$write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 ')
+    print('$write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 ')
+    print( '$write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10  $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10 $write("%d, ", IN_VAL);#10')
+    print("BUS_CON=0;OUT_VALID=1;STROBE_MODE=0;STROBE_DATA=1; #10 ")
